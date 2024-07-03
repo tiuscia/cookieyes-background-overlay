@@ -1,0 +1,71 @@
+<html lang="en">
+  <head>
+    <script src="https://cdn-cookieyes.com/client_data/{YOUR_COOKIEYES_ID}/banner.js" async="" id="cookieyes-banner"></script>
+  </head>
+  <body>
+      <div class="overlaycookieyes hide"></div>
+  
+      <style>
+      .overlaycookieyes {
+        background: #202622;
+        opacity: .7;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 21;
+      }
+      .overlaycookieyes.hide {
+        display: none;
+      }
+      </style>
+  
+      <script>
+      window.addEventListener('load', function() {
+        var checkCookieyesInterval = setInterval(function() {
+          
+          if (window?.cookieyes?._ckyConsentStore?.has('action')) {
+            clearInterval(checkCookieyesInterval);
+    
+            if (window?.cookieyes?._ckyConsentStore.get("action") === "") {
+              // user didn't consent
+              var overlay = document.querySelector('.overlaycookieyes');
+              
+              if (overlay) {
+                overlay.classList.remove('hide');
+              }          
+            }
+          }
+        }, 200);
+
+        var checkCookieyesButtonsInterval = setInterval(function() {
+
+          var acceptButton = document.querySelector('.cky-btn.cky-btn-accept');
+          // add a reject button if you have one
+          var acceptPreferences = document.querySelector('.cky-btn.cky-btn-preferences');
+  
+          if (acceptButton) {
+            clearInterval(checkCookieyesButtonsInterval);
+            acceptButton.addEventListener('click', function() {
+              var overlay = document.querySelector('.overlaycookieyes'); 
+              if (overlay) {
+                overlay.classList.add('hide');
+              }
+            });
+          }
+  
+          if (acceptPreferences) {
+            clearInterval(checkCookieyesButtonsInterval);
+            acceptPreferences.addEventListener('click', function() {
+              var overlay = document.querySelector('.overlaycookieyes'); 
+              if (overlay) {
+                overlay.classList.add('hide');
+              }
+            });
+          }
+  
+        }, 200);
+      });
+      
+      </script>
+    </body>
+</html>
