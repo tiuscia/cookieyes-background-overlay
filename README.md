@@ -13,4 +13,4 @@ My scenario:
 
 
 ## Note
-if you have a reject button you will need to add a listener for that
+if you have a reject button you will need to add a query selector for that
