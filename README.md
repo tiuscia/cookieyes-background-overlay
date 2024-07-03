@@ -5,3 +5,12 @@ This code snippet offers a solution since the Basic plan (paid) lacks this funct
 Add a visually distinct background to enhance your cookie consent message.
 
 
+My scenario:
+- SPA
+- vue.js
+- cookie yes with basic plan
+- Button: accept + save preference
+
+
+## Note
+if you have a reject button you will need to add a listener for that
